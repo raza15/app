@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p><strong>
+  Hello <%= @user.email %>! Welcome to your all in one app!
+</strong><p>
+
+<td><%= button_to "Facebook",  face_book_user_path(@user), method: :get, class: "btn btn-primary", style:"color:white"%></td>
+<br>
+<td><%= button_to "Twitter",  twitter_user_path(@user), method: :get, class: "btn btn-primary", style:"color:white"%></td>
+<br>
+<td><%= button_to "Stack Overflow",  stack_overflow_user_path(@user), method: :get, class: "btn btn-primary", style:"color:white"%></td>
+<br>
+<td><%= button_to "Gmail",  g_mail_user_path(@user), method: :get, class: "btn btn-primary", style:"color:white"%></td>
+

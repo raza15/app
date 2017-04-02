@@ -1,0 +1,35 @@
+
+<%if (current_user==nil) %>
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "cloud manager", '#', id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Log In",   '/login' %></li>
+        <li><%= link_to "Sign Up", '/signup' %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<%else%>
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to User.find(current_user.id).email, root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to "       ",   '#' %></li>
+        <li><%= link_to "DROPBOX",   '/dropbox' %></li>
+        <li><%= link_to "SEARCH",   '/search' %></li>
+        <li><%= link_to "Facebook", face_book_user_path(current_user) %></li>
+        <li><%= link_to "Twitter", twitter_user_path(current_user) %></li>
+        <li><%= link_to "Stack Overflow", stack_overflow_user_path(current_user) %></li>
+        <li><%= link_to "Gmail", g_mail_user_path(current_user) %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home",   '#' %></li>
+        <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<%end%>

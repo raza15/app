@@ -1,0 +1,13 @@
+<%= form_tag({:controller => :dropbox, :action => :searchresult}, :method => "get") do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+The following files contain the contents of your search query:
+<br><br>
+<% for file in @search_results do %>
+	<%file[0] = ''%>
+	<%=file%>
+<%end%>
